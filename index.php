@@ -123,5 +123,55 @@ $filter = filterBook($books,'year',2001);
         </li>
         <?php endforeach ?>
     </ul>
+    <h3>Home work</h3>
+    <h4> 1.Update your book filtering logic from this episode to only display books that were first published between the years 1950 and 2020. Hint - the PHP equivalent of "and" is &&</h4>
+    <?php 
+    $books = [
+        ['author'=>'Robin',
+         'year'=>2000,
+         'book'=>'the monk who sold his ferrari'],
+
+         ['author'=>'Robin',
+         'year'=>1950,
+         'book'=>'the family wisdom'],
+         ['author'=>'Robin',
+         'year'=>1944,
+         'book'=>'the family wisdom'],
+
+         ['author'=>'Chethan Bhagath',
+         'year'=>1959,
+         'book'=>'half girlfriend'],
+
+         ['author'=>'Chethan Bhagath',
+         'year'=>2001,
+         'book'=>'half girlfriend'],
+
+         ['author'=>'Raj',
+         'year'=>2002,
+         'book'=>'half'],
+
+];
+function filter($items,$fn){
+    $filtered = [];
+    foreach($items as $item){
+        if($fn($item)){
+            $filtered[]=$item;
+        }
+    }
+    return $filtered;
+
+}
+$bookFilter = filter($books,function($book){
+    if($book['year']>=1950 && $book['year']<=2020){
+        return $book['year'];
+    }
+});
+?>
+<ul>
+<?php  foreach($bookFilter as $filter): ?>
+     <li><?= $filter['author']." ".$filter['book']." ".$filter['year']  ?></li>
+    <?php endforeach ?>
+</ul>
+
 </body>
 </html>
