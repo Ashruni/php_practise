@@ -1,0 +1,41 @@
+<?php
+    $books = [
+        ['author'=>'Robin',
+         'year'=>2000,
+         'book'=>'the monk who sold his ferrari'],
+
+         ['author'=>'Robin',
+         'year'=>1950,
+         'book'=>'the family wisdom'],
+         ['author'=>'Robin',
+         'year'=>1944,
+         'book'=>'the family wisdom'],
+
+         ['author'=>'Chethan Bhagath',
+         'year'=>1959,
+         'book'=>'half girlfriend'],
+
+         ['author'=>'Chethan Bhagath',
+         'year'=>2001,
+         'book'=>'half girlfriend'],
+
+         ['author'=>'Raj',
+         'year'=>2002,
+         'book'=>'half'],
+
+];
+function filter($items,$fn){
+    $filtered = [];
+    foreach($items as $item){
+        if($fn($item)){
+            $filtered[]=$item;
+        }
+    }
+    return $filtered;
+
+}
+$bookFilter = filter($books,function($book){
+    if($book['year']>=1950 && $book['year']<=2020){
+        return $book['year'];
+    }
+});
