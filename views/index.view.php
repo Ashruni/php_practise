@@ -14,10 +14,8 @@
 <?php  require('partials/nav.php') ?>
 <?php require('partials/header.php') ?>
 
+
   <main>
- 
-   <h1><?= $heading ?></h1>
-    
   </main>
 
 </div>
